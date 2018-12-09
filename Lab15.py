@@ -62,8 +62,14 @@ def play_craps(die1, die2):
 #   Problem 2: Calendars and Dates
 
 # Prints out a calendar of the month you were born, given the month and year
-def print_bday_month(month, year):
-    print(calendar.month(year, month))
+def print_bday_month(date):
+    print(calendar.month(date.year, date.month))
+
+def prompt_bday():
+    month = int(input("Enter your birthday month in MM format: "))
+    day = int(input("Enter your birthday day in DD format: "))
+    year = int(input("Enter your birthday year in YY format: "))
+    return datetime.datetime(year, month, day)
 
 # Returns how many days it is until your next birthday
 def days_til_bday(today, bday):
@@ -78,7 +84,7 @@ def days_til_bday(today, bday):
 # Prints the day of the week, month, day, and year
 def print_date(month, day, year):
     date = datetime.datetime(year, month, day)
-    print(date.strftime("%A, %B %d, %Y"))
+    print(date.strftime("%A, %B %w, %Y"))
 
 
 def main():
@@ -89,12 +95,9 @@ def main():
     else:
         print("You lose.")
     print("\nProblem 2: Calendars and Dates\n***************\n")
-    year = 1983
-    month = 11
-    day = 1
-    print_bday_month(month,year)
-    birthday = datetime.datetime(year, month, day)
-    today = datetime.datetime.now()
+    birthday = prompt_bday() # Creates datetime object of your birthday
+    print_bday_month(birthday) # prints your birthday month's calendar
+    today = datetime.datetime.now() # datetime object of today
     print("Days until next birthday: ", round(days_til_bday(today, birthday)))
     print("***********************************\n\n")
     print("The Declaration of Independence was ratified on:")
