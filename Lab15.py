@@ -1,4 +1,6 @@
-# Lab 15
+# Sara Kazemi and Cody Young
+# CST 205
+# Lab 15 - Craps and Calendars
 
 import random
 import calendar
