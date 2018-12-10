@@ -75,7 +75,7 @@ def prompt_bday():
 
 # Returns how many days it is until your next birthday
 def days_til_bday(today, bday):
-    if(today.month > bday.month or (today.month == bday.month and today.day > bday.day)):
+    if(today.month > bday.month or (today.month == bday.month and today.day >= bday.day)):
         next_bday = datetime.datetime(today.year + 1, bday.month, bday.day)
     else:
         next_bday = datetime.datetime(today.year, bday.month, bday.day)
